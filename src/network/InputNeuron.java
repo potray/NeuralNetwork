@@ -7,11 +7,11 @@ package network;
  * @author Daniel
  *
  */
-public class NeuronWithoutConnections {
+public class InputNeuron {
 	private double input;
 	private double bias;
 	
-	public NeuronWithoutConnections (double bias){
+	public InputNeuron (double bias){
 		this.bias = bias;
 	}
 

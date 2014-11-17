@@ -2,8 +2,8 @@ package network;
 
 import java.util.ArrayList;
 
-public class NeuronWithConnections {
-	private ArrayList<NeuronWithoutConnections> inputNeurons;
+public class OutputNeuron {
+	private ArrayList<HiddenNeuron> inputNeurons;
 	private ArrayList<Double> weights;
 	private double bias;
 	
@@ -11,13 +11,13 @@ public class NeuronWithConnections {
 	 * 
 	 * @param connections number of neurons connected to this one in the previous layer.
 	 */
-	public NeuronWithConnections (int connections, double bias){
-		inputNeurons = new ArrayList <NeuronWithoutConnections> (connections);
+	public OutputNeuron (int connections, double bias){
+		inputNeurons = new ArrayList <HiddenNeuron> (connections);
 		weights = new ArrayList <Double> (connections);
 		this.bias = bias;
 	}
 	
-	public void addConnection(NeuronWithoutConnections neuron, double connectionWeight){
+	public void addConnection(HiddenNeuron neuron, double connectionWeight){
 		inputNeurons.add(neuron);
 		weights.add(connectionWeight);
 	}
