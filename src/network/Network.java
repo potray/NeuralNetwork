@@ -52,6 +52,32 @@ public class Network {
 			
 			N.outputLayer.add(neuron);
 		}
+		
+		//Test net
+		
+		double sum = 0;
+		
+		double [] test1 = {1, 0.455, 0.365, 0.095, 0.514, 0.2245, 0.101, 0.15};
+		double [] test2 = {1, 0.35, 0.265, 0.09, 0.2255, 0.0995, 0.0485, 0.07};
+		double [] test3 = {0, 0.53, 0.42, 0.135, 0.677, 0.2565, 0.1415, 0.21};
+		double [] test4 = {1, 0.44, 0.365, 0.125, 0.516, 0.2155, 0.114, 0.155};
+		double [] test5 = {0.5, 0.33, 0.255, 0.08, 0.205, 0.0895, 0.0395, 0.055};
+		
+		double [] corrects = {15, 7, 9, 10, 7};
+
+		double [][] tests = {test1, test2, test3, test4, test5};
+		for (int i = 0; i < 5; i++){	
+			for (int j = 0; j < N.inputLayer.size(); j++){
+				N.inputLayer.get(j).setInput(tests[i][j]);
+			}
+			double output = N.outputLayer.get(0).getValue(); 
+			double error = output - corrects[i];
+			double errorPow = Math.pow(error, 2);
+			sum += errorPow;
+			System.out.println("Iteración " + i + ", salida = " + output + " error = " + error + " error cuadrático = " + errorPow);
+		}
+		
+		System.out.println(sum);
 	}
 
 }

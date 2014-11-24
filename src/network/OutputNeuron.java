@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class OutputNeuron {
 	private ArrayList<HiddenNeuron> inputNeurons;
 	private ArrayList<Double> weights;
+	@SuppressWarnings("unused")
 	private double bias;
 	
 	/**
@@ -30,11 +31,8 @@ public class OutputNeuron {
 			sum += inputNeurons.get(i).getValue() * weights.get(i);
 		}
 		
-		//Add bias
-		sum += bias;
-		
-		//Apply sigmoid function
-		sum = 1/(1 + Math.exp(-sum));
+		//JavaNNS doesn't use bias
+		//sum += bias;
 		
 		//Return
 		return sum;
