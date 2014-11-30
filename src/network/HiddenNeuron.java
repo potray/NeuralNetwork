@@ -6,9 +6,8 @@ public class HiddenNeuron {
 	private ArrayList<InputNeuron> inputNeurons;
 	private ArrayList<Double> weights;
 	private double bias;
-	
+
 	/**
-	 * 
 	 * @param connections number of neurons connected to this one in the previous layer.
 	 */
 	public HiddenNeuron (int connections, double bias){
@@ -17,11 +16,20 @@ public class HiddenNeuron {
 		this.bias = bias;
 	}
 	
+	/**
+	 * Adds a link to an input neuron.
+	 * @param neuron the neuron to link.
+	 * @param connectionWeight the weight of the link.
+	 */
 	public void addConnection(InputNeuron neuron, double connectionWeight){
 		inputNeurons.add(neuron);
 		weights.add(connectionWeight);
 	}
 	
+	/**
+	 * Gets sigmoid(sum(inputNeuron * linkWeight) + bias).
+	 * @return the output of this neuron.
+	 */
 	public double getValue(){
 		//Sum all inputs multiplied by their weights
 		double sum = 0;
@@ -46,4 +54,19 @@ public class HiddenNeuron {
 	public void setBias(double bias) {
 		this.bias = bias;
 	}
+	
+	/**
+	 * @return the bias
+	 */
+	public double getBias() {
+		return bias;
+	}
+	
+	/**
+	 * @return the weights
+	 */
+	public ArrayList<Double> getWeights() {
+		return weights;
+	}
+
 }

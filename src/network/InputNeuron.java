@@ -10,7 +10,11 @@ package network;
 public class InputNeuron {
 	private double input;
 	private double bias;
-	
+
+	/**
+	 * Contructor
+	 * @param bias the bias of the neuron.
+	 */
 	public InputNeuron (double bias){
 		this.bias = bias;
 	}
@@ -19,7 +23,7 @@ public class InputNeuron {
 	 * @return input * bias.
 	 */
 	public double getValue() {
-		return input * bias;
+		return input /*+ bias*/;
 	}
 
 	/**
@@ -27,5 +31,19 @@ public class InputNeuron {
 	 */
 	public void setInput(double input) {
 		this.input = input;
-	}	
+	}
+	
+	/**
+	 * @return the bias
+	 */
+	public double getBias() {
+		return bias;
+	}
+
+	/**
+	 * @param bias the bias to set
+	 */
+	public void setBias(double bias) {
+		this.bias = bias;
+	}
 }
